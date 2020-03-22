@@ -18,19 +18,19 @@
                       </div>
                       <div class="text-center mt-3">
                          <h4><b><%= @case.patient.full_name %></b></h4>
-                         <p><%= ((Time.zone.now - @case.patient.dob.to_time) / 1.year.seconds).floor %> lat</p>
+                         <p><%= ((Time.zone.now - @case.patient.dob.to_time) / 1.year.seconds).floor %> yo</p>
                       </div>
                       <ul class="doctoe-sedual d-flex align-items-center justify-content-between p-0 mt-4 mb-0">
                         <li class="text-center">
-                           <h6 class="text-primary">Płeć</h6>
+                           <h6 class="text-primary">Sex</h6>
                            <h3><%= @case.patient.sex.capitalize %></h3>
                         </li>
                          <li class="text-center">
-                            <h6 class="text-primary">Waga</h6>
+                            <h6 class="text-primary">Weight</h6>
                             <h3><%= @case.patient.weight %><span>kg</span></h3>
                          </li>
                          <li class="text-center">
-                            <h6 class="text-primary">Wzrost</h6>
+                            <h6 class="text-primary">Height</h6>
                             <h3><%= @case.patient.height %><span>cm</span></h3>
                          </li>
                       </ul>
@@ -40,15 +40,15 @@
                        <div class="d-flex align-items-center justify-content-between">
                           <div class="col-md-12">
                             <div class="data-block">
-                               <p class="mb-0">Pesel</p>
+                               <p class="mb-0">PESEL</p>
                                <h5><%= @case.patient.pesel %></h5>
                             </div>
                             <div class="data-block">
-                               <p class="mb-0">Telefon</p>
+                               <p class="mb-0">Phone</p>
                                <h5><%= @case.patient.phone %></h5>
                             </div>
                              <div class="data-block mt-3">
-                                <p class="mb-0">Choroby przewlekłe</p>
+                                <p class="mb-0">Chronic Diseases</p>
                                 <h5><%= @case.patient.chronic_diseases %></h5>
                              </div>
                           </div>
@@ -65,7 +65,7 @@
                       <div class="col-sm-12">
                          <div class="iq-card">
                             <div class="iq-header-title">
-                               <h4 class="card-title text-primary">Treść zgłoszenia</h4>
+                               <h4 class="card-title text-primary">Case description</h4>
                             </div>
                             <p class="mb-0">
                               <%= @case.description %>
@@ -75,7 +75,7 @@
                        <div class="col-sm-12">
                           <div class="iq-card">
                              <div class="iq-header-title">
-                                <h4 class="card-title text-primary">Pliki</h4>
+                                <h4 class="card-title text-primary">Files</h4>
                              </div>
                              <p class="mb-0">
                                -
@@ -85,7 +85,7 @@
                         <div class="col-sm-12">
                            <div class="iq-card">
                               <div class="iq-header-title">
-                                 <h4 class="card-title text-primary">Odpowiedź lekarza</h4>
+                                 <h4 class="card-title text-primary">Doctor solution</h4>
                               </div>
                               <div class="chat-content" style="height:unset; overflow-y:auto">
                                 <div class="chat chat-left">
@@ -109,16 +109,16 @@
              </div>
              <div class="row" style="margin-bottom: 15px">
                <div class="col-md-3">
-                <button type="button" class="btn btn-block mb-3 btn-primary rounded-pill"><i class="ri-bill-fill"></i>Edytuj odpowiedź</button>
+                <button type="button" class="btn btn-block mb-3 btn-primary rounded-pill"><i class="ri-bill-fill"></i>Edit solution</button>
                </div>
                <div class="col-md-3">
-                 <button type="button" class="btn btn-block mb-3 btn-primary rounded-pill" data-toggle="modal" data-target="#callModal"><i class="ri-phone-fill"></i>Zadzwoń</button>
+                 <button type="button" class="btn btn-block mb-3 btn-primary rounded-pill" data-toggle="modal" data-target="#callModal"><i class="ri-phone-fill"></i>Call</button>
                </div>
                <div class="col-md-3">
-                 <button type="button" class="btn btn-block mb-3 btn-dark rounded-pill"><i class="ri-shield-cross-fill"></i>Do specjalisty</button>
+                 <button type="button" class="btn btn-block mb-3 btn-dark rounded-pill"><i class="ri-shield-cross-fill"></i>Assign specialist</button>
                </div>
                <div class="col-md-3">
-                 <button type="button" class="btn btn-block mb-3 btn-success rounded-pill"><i class="ri-check-fill"></i>Zakończ</button>
+                 <button type="button" class="btn btn-block mb-3 btn-success rounded-pill"><i class="ri-check-fill"></i>Close</button>
                </div>
              </div>
             <div class="iq-card iq-card-block iq-card-stretch">
@@ -127,12 +127,12 @@
                      <div class="col-sm-12">
                         <div class="iq-card">
                            <div class="iq-header-title">
-                              <h4 class="card-title text-primary">Komentarze lekarzy dotyczące pacjenta</h4>
+                              <h4 class="card-title text-primary">Comments regarding patient</h4>
                            </div>
                            <div class="form-group">
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
                            </div>
-                           <button type="submit" class="btn btn-primary">Dodaj komentarz</button>
+                           <button type="submit" class="btn btn-primary">Add comment</button>
                            <div class="chat-content" style="height:unset; overflow-y:auto">
                              <div class="chat chat-left">
                                <div class="chat-user">
@@ -143,7 +143,7 @@
                                </div>
                                <div class="chat-detail">
                                  <div class="chat-message">
-                                   <p>Pacjent mimo objawów wodonercza drugiej nerki (zdrowej, prawej) odmowił udania się na kontrolę scyntygraficzną</p>
+                                   <p>Patient denied to attend kidney diagnostics</p>
                                  </div>
                                </div>
                              </div>
@@ -167,7 +167,7 @@
                    </ul>
                 </div>
                 <div class="col-lg-6 text-right">
-                   Copyright 2020 <a href="#">XRay</a> All Rights Reserved.
+                   Copyright 2020 <a href="#">IBLW</a> All Rights Reserved.
                 </div>
              </div>
           </div>
@@ -183,7 +183,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Połączenie telefoniczne</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Calling ... </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -194,7 +194,7 @@
           <h3><%= @case.patient.phone %></h3>
           <%= image_tag "web_call.png" %>
           <hr>
-          <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal">Zakończ</button>
+          <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal">Hang up</button>
         </center>
       </div>
     </div>

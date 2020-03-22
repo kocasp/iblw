@@ -63,6 +63,7 @@ end
     description: Faker::Lorem.paragraphs.join(''),
     solution: Faker::Lorem.paragraphs.join(''),
     doctor: User.doctor.all.sample,
-    status: 'active'
+    status: 'active',
+    covid_suspected: [false, false, false, false, false, false, false, true].sample
   )
 end

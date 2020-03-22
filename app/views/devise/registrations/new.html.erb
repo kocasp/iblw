@@ -1,29 +1,84 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<section class="sign-in-page">
+    <div class="container sign-in-page-bg mt-5 p-0">
+        <div class="row no-gutters">
+            <div class="col-md-6 text-center">
+                <div class="sign-in-detail text-white">
+                </div>
+            </div>
+            <div class="col-md-6 position-relative">
+                <div class="sign-in-from">
+                    <h1 class="mb-0">Doctor registration</h1>
+                    <%= render "devise/shared/error_messages", resource: resource %>
+                    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'mt-4'}) do |f| %>
+                        <div class="form-group">
+                            <label for="exampleInputEmail2">Email</label>
+                            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control mb-0" %>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <%= f.password_field :password, class:"form-control mb-0" %>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Repeat password</label>
+                            <%= f.password_field :password_confirmation, class:"form-control mb-0" %>
+                        </div>
+                        <hr>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">First Name</label>
+                            <%= f.text_field :first_name, class:"form-control mb-0" %>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Last name</label>
+                            <%= f.text_field :last_name, class:"form-control mb-0" %>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">DOB</label>
+                            <%= f.text_field :dob, class:"form-control mb-0", placeholder: "DD-MM-YYYY" %>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">The PWZ (right to practice a profession) number</label>
+                            <%= f.text_field :pwz_number, class:"form-control mb-0" %>
+                        </div>
+                        <div class="d-inline-block w-100">
+                            <div class="custom-control custom-checkbox d-inline-block mt-2 pt-1">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                <label class="custom-control-label" for="customCheck1">Accept <a href="/privacy_policy.docx">Privacy policy</a></label>
+                            </div>
+                            <%= f.hidden_field :user_type, value: params['user_type'] %>
+                            <%= f.submit "Register", class: "btn btn-primary float-right" %>
+                            <!-- <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModalCenter">Register</button> -->
+                            <!-- <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModalCenter">Register</button> -->
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Your right to practice can not be verified</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        NIL - "Naczelna Izba Lekarska" did not authorize you as an active doctor.
+        If you have a valid PWD number and PWD document number, please contact support.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+</div>
+<% if params["valid"] == "false" %>
+  <script type="text/javascript">
+      $(window).on('load',function(){
+          $('#exampleModalCenter').modal('show');
+      });
+  </script>
 <% end %>
-
-<%= render "devise/shared/links" %>

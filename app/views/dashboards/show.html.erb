@@ -12,12 +12,12 @@
               <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                 <div class="iq-card-header d-flex justify-content-between">
                    <div class="iq-header-title">
-                      <h4 class="card-title">Zgłoszenia przypisane do Twojej specjalizacji</h4>
+                      <h4 class="card-title">Cases related to your specialization</h4>
                    </div>
                 </div>
                 <div class="iq-card-body">
                   <div class="d-inline-block text-center w-100">
-                     <p>Aktualnie brak zgłoszeń przypisanych do Twojej specjalizacji</p>
+                     <p>Currently there is no case related to your specialization</p>
                   </div>
                 </div>
               </div>
@@ -26,7 +26,7 @@
                 <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                   <div class="iq-card-header d-flex justify-content-between">
                      <div class="iq-header-title">
-                        <h4 class="card-title">Zgłoszenia nieprzypisane do specjalizacji</h4>
+                        <h4 class="card-title">Cases not related to your specialization</h4>
                      </div>
                   </div>
                   <div class="iq-card-body">
@@ -34,9 +34,9 @@
                         <table class="table mb-0 table-borderless">
                            <thead>
                               <tr>
-                                 <th scope="col">Pacjent</th>
-                                 <th scope="col" style="width: 65%">Zgłoszenie</th>
-                                 <th scope="col">Data zgłoszenia</th>
+                                 <th scope="col">Patient</th>
+                                 <th scope="col" style="width: 65%">Case</th>
+                                 <th scope="col">Case report date</th>
                               </tr>
                            </thead>
                            <tbody>
@@ -45,6 +45,9 @@
                                  <td>
                                    <%= image_tag c.patient.sex == 'm' ? "user/09.jpg" : "user/1.jpg", class: "rounded-circle img-fluid avatar-40" %>
                                    <span style="white-space:nowrap"><%= c.patient.full_name %></span>
+                                   <% if c.covid_suspected %>
+                                     <span class="badge badge-danger">COVID-19 suspected</span>
+                                   <% end %>
                                  </td>
                                  <td>
                                    <%= link_to case_path(c) do %>
@@ -75,7 +78,7 @@
                      </ul>
                   </div>
                   <div class="col-lg-6 text-right">
-                     Copyright 2020 <a href="#">XRay</a> All Rights Reserved.
+                     Copyright 2020 <a href="#">IBLW</a> All Rights Reserved.
                   </div>
                </div>
             </div>
