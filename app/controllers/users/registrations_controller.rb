@@ -7,23 +7,35 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    build_resource
+    yield resource if block_given?
+    case params["user_type"]
+    when 'doctor'
+      render 'doctor_new'
+    when 'patient'
+      render 'patient_new'
+    else
+      redirect_to root_path
+    end
+  end
 
   # POST /resource
   def create
-    formatted_dob = sign_up_params["dob"].gsub("-","")
-    pwz_number = sign_up_params["pwz_number"]
-
-    uri = URI.parse("http://hdt.hipokrates.org/?pwz=#{pwz_number}&data_ur=#{formatted_dob}&format=json")
-    response = Net::HTTP.get_response(uri)
-    json_response = JSON.parse(response.body)
-
-    pwz_verified = (json_response["wynik"] == "1")
-    unless pwz_verified
-      redirect_to new_registration_path(User, valid: false, user_type: sign_up_params["user_type"]) and return
-    end
+    # formatted_dob = sign_up_params["dob"].gsub("-","")
+    # pwz_number = sign_up_params["pwz_number"]
+    #
+    # url = "http://hdt.hipokrates.org/?pwz=#{pwz_number}&data_ur=#{formatted_dob}&format=json"
+    # p url
+    #
+    # uri = URI.parse(url)
+    # response = Net::HTTP.get_response(uri)
+    # json_response = JSON.parse(response.body)
+    # p json_response
+    # pwz_verified = (json_response["wynik"] == "1")
+    # unless true
+    #   redirect_to new_registration_path(User, valid: false, user_type: sign_up_params["user_type"]) and return
+    # end
 
     super
   end
@@ -55,7 +67,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # protected
 
   def sign_up_params
-    params.require(:user).permit(:email, :password, :first_name, :last_name, :pesel, :address, :phone, :pwz_number, :dob, :age, :weight, :height, :sex, :user_type)
+    params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :pesel, :address, :phone, :pwz_number, :dob, :age, :weight, :height, :sex, :user_type)
   end
 
   # If you have extra params to permit, append them to the sanitizer.

@@ -53,6 +53,13 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'meta_request'
   gem 'pry'
+
+  gem 'capistrano-rvm', require: false
+  gem 'rvm-capistrano', require: false
+  gem 'capistrano-sidekiq', :require => false
+  gem 'capistrano-unicorn', :require => false
+  gem 'capistrano-rails', :require => false
+  gem 'capistrano', "~> 2.15.0"
 end
 
 group :test do
