@@ -8,40 +8,41 @@
                     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'mt-4'}) do |f| %>
                         <div class="form-group">
                             <label for="exampleInputEmail2">Email</label>
-                            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control mb-0" %>
+                            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control mb-0", required: true %>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Hasło</label>
-                            <%= f.password_field :password, class:"form-control mb-0" %>
+                            <%= f.password_field :password, class:"form-control mb-0", required: true %>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Powtórz hasło</label>
-                            <%= f.password_field :password_confirmation, class:"form-control mb-0" %>
+                            <%= f.password_field :password_confirmation, class:"form-control mb-0", required: true %>
                         </div>
                         <hr>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Imię</label>
-                            <%= f.text_field :first_name, class:"form-control mb-0" %>
+                            <%= f.text_field :first_name, class:"form-control mb-0", required: true %>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Nazwisko</label>
-                            <%= f.text_field :last_name, class:"form-control mb-0" %>
+                            <%= f.text_field :last_name, class:"form-control mb-0", required: true %>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Data urodzenia</label>
-                            <%= f.text_field :dob, class:"form-control mb-0", placeholder: "DD-MM-YYYY" %>
+                            <%= f.text_field :dob, class:"form-control mb-0", placeholder: "DD-MM-YYYY", required: true %>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Numer PWZ (Prawo do Wykonywania Zawodu)</label>
-                            <%= f.text_field :pwz_number, class:"form-control mb-0" %>
+                            <%= f.text_field :pwz_number, class:"form-control mb-0", required: true %>
                         </div>
                         <div class="d-inline-block w-100">
                             <div class="custom-control custom-checkbox d-inline-block mt-2 pt-1">
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1">Akceptuję <a href="/privacy_policy.docx">Regulamin</a></label>
+                                <!-- <input type="checkbox" class="custom-control-input" id="customCheck1"> -->
+                                <!-- <label class="custom-control-label" for="customCheck1">Akceptuję <a href="/privacy_policy.docx">Regulamin</a></label> -->
+                                Klikając "Zarejestruj" akceptujesz <a href="/privacy_policy.docx">Regulamin</a>
                             </div>
                             <%= f.hidden_field :user_type, value: params['user_type'] %>
-                            <%= f.submit "Register", class: "btn btn-primary float-right" %>
+                            <%= f.submit "Zarejestruj", class: "btn btn-primary float-right" %>
                             <!-- <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModalCenter">Register</button> -->
                             <!-- <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModalCenter">Register</button> -->
                         </div>
