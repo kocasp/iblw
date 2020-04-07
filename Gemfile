@@ -23,6 +23,8 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
+gem 'devise-i18n'
+
 gem 'amcharts.rb'
 gem 'sidekiq', '< 6.0'
 gem 'unicorn'
