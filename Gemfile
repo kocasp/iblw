@@ -54,6 +54,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'meta_request'
   gem 'pry'
+  gem 'meta_request'
 
   gem 'capistrano-rvm', require: false
   gem 'rvm-capistrano', require: false
