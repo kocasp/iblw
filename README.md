@@ -1,6 +1,8 @@
 # IBLW Readme
 Online Database of Volunteer Doctors
-![Imgur Image](https://i.imgur.com/PX1kP1h.png)
+![Imgur Image](https://www.gov.pl/photo/40fee575-0ecc-405d-8e62-9396f7064fe3)  
+Konrad Strojny  
+Wojciech Kanas
 
 
 ## Overview
