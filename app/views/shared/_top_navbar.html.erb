@@ -11,7 +11,9 @@
           </div>
        </div>
        <nav class="navbar navbar-expand-lg navbar-light p-0">
-          <%= link_to 'Dashboard',  root_path %>
+          <% if doctor_signed_in? %>
+            <%= link_to 'Dashboard',  root_path %>
+          <% end %>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <i class="ri-menu-3-line"></i>
           </button>
@@ -23,7 +25,12 @@
                    <%= image_tag "user/09.jpg", class:"img-fluid rounded mr-3"%>
                    <div class="caption">
                       <h6 class="mb-0 line-height"><%= current_user.full_name %></h6>
-                      <span class="font-size-12"><%= current_user.user_type.capitalize %> Profile</span>
+                      <% if patient_signed_in? %>
+                        <span class="font-size-12">Profil pacjenta</span>
+                      <% end %>
+                      <% if doctor_signed_in? %>
+                        <span class="font-size-12">Profil lekarza</span>
+                      <% end %>
                    </div>
                 </a>
                 <div class="iq-sub-dropdown iq-user-dropdown">
@@ -55,7 +62,12 @@
                             </div>
                          </a>
                          <div class="d-inline-block w-100 text-center p-3">
-                            <%= link_to('Wyloguj', destroy_user_session_path, method: :delete, class: "bg-primary iq-sign-btn") %>
+                            <% if patient_signed_in? %>
+                                <%= link_to('Wyloguj', destroy_patient_session_path, method: :delete, class: "bg-primary iq-sign-btn") %>
+                            <% end %>
+                            <% if doctor_signed_in? %>
+                               <%= link_to('Wyloguj', destroy_doctor_session_path, method: :delete, class: "bg-primary iq-sign-btn") %>
+                            <% end %>
                          </div>
                       </div>
                    </div>
