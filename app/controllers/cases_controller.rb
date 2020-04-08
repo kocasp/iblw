@@ -19,7 +19,7 @@ class CasesController < ApplicationController
     @case.status = 'active'
     respond_to do |format|
       if @case.save
-        format.html { redirect_to new_case_path, notice: 'Case was successfully created.' }
+        format.html { redirect_to new_case_path, notice: 'Zgłoszenie zostało zapisane.' }
       else
         format.html { render :new }
       end

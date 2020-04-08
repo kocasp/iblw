@@ -39,7 +39,7 @@
                         </div>
                    </div>
               </div>
-              <%= link_to 'Wycofaj aktualne zgłoszenie', @active_case, method: :delete, data: { confirm: 'Remove submission?' }, class: "btn btn-block mb-3 btn-outline-danger" %>
+              <%= link_to 'Wycofaj aktualne zgłoszenie', @active_case, method: :delete, data: { confirm: 'Czy na pewno chcesz wycować zgłoszenie?' }, class: "btn btn-block mb-3 btn-outline-danger" %>
             <% else %>
                <%= form_with model: Case.new, local: true do |form| %>
                  <div class="field">
