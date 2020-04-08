@@ -39,14 +39,14 @@
                         </div>
                    </div>
               </div>
-              <%= link_to 'Remove case submission', @active_case, method: :delete, data: { confirm: 'Remove submission?' }, class: "btn btn-block mb-3 btn-outline-danger" %>
+              <%= link_to 'Wycofaj aktualne zgłoszenie', @active_case, method: :delete, data: { confirm: 'Remove submission?' }, class: "btn btn-block mb-3 btn-outline-danger" %>
             <% else %>
                <%= form_with model: Case.new, local: true do |form| %>
                  <div class="field">
-                   <%= form.text_area :description, class: "form-control mb-3", placeholder: "Case description" %>
+                   <%= form.text_area :description, class: "form-control mb-3", placeholder: "Opis dolegliwości / zapotrzebowania na leki" %>
                  </div>
                  <div class="actions">
-                   <%= form.submit "Submit a case", class: "btn btn-block mb-3 btn-primary" %>
+                   <%= form.submit "Wyślij zgłoszenie", class: "btn btn-block mb-3 btn-primary" %>
                  </div>
                <% end %>
 
