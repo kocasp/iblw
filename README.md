@@ -65,10 +65,11 @@ Currently there is only master branch that is deployed to production.
 Please create Pull Requests to the master branch directly
 
 ### Deployment
-Deploy with  
-`cap production deploy`  
-Log in to server with  
-`ssh deploy@xxx.xxx.xxx.xxx -p 4321`
+Development branch is available under develop.wolontariatmedyczny.pl  
+Production deployment is triggered automatically after merge to master  
+
+__currently on both environments manual trigger of `rails db:migrate` is required__  
+it is possible from heroku dashboard. Or with `heroku run rails db:migrate`
 
 ### Roadmap
 - Adding Biometric-As-A-Service ID verification
