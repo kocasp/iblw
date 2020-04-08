@@ -50,7 +50,8 @@ Patient:
 
 
 ## Application structure
-Ruby on Rails convention
+Ruby on Rails convention  
+Patient and Doctor use Single Table Inheritance
 
 
 ## Development instructions
