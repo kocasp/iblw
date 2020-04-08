@@ -32,6 +32,10 @@
                             <%= f.text_field :dob, class:"form-control mb-0", placeholder: "DD-MM-YYYY", required: true %>
                         </div>
                         <div class="form-group">
+                            <label for="exampleInputEmail1">Płeć</label>
+                            <%= f.text_field :sex, class:"form-control mb-0", required: true, maxlength: 1, placeholder: "M/K" %>
+                        </div>
+                        <div class="form-group">
                             <label for="exampleInputEmail1">Numer PWZ (Prawo do Wykonywania Zawodu)</label>
                             <%= f.text_field :pwz_number, class:"form-control mb-0", required: true %>
                         </div>

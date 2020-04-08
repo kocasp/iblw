@@ -1,12 +1,10 @@
-
 User.destroy_all
 Case.destroy_all
 
 p "Creating doctors ..."
 
 5.times do |i|
-  doctor = User.create(
-    user_type: 'doctor',
+  doctor = Doctor.create(
     email: Faker::Internet.email,
     password: 'password1',
     first_name: Faker::Name.first_name,
@@ -17,11 +15,22 @@ p "Creating doctors ..."
   )
 end
 
-p "Creating patients and their cases ..."
+p "Creating doctor for testing ..."
+
+Doctor.create(
+  email: test_doctor_email,
+  password: test_doctor_password,
+  first_name: "James",
+  last_name: "Smith",
+  pwz_number: "6554327A",
+  dob: Date.new(1990, 11, 11),
+  sex: 'm'
+)
+
+p "Creating random patients and their cases ..."
 
 20.times do |i|
-  patient = User.create(
-    user_type: 'patient',
+  patient = Patient.create(
     email: Faker::Internet.email,
     password: 'password1',
     first_name: Faker::Name.first_name,
@@ -33,14 +42,14 @@ p "Creating patients and their cases ..."
     height: rand(159..185),
     sex: ['m', 'f'].sample
   )
-  
+
   # Create closed cases
   3.times do |i|
     Case.create(
       patient: patient,
       description: Faker::Lorem.paragraphs.join(''),
       solution: Faker::Lorem.paragraphs.join(''),
-      doctor: User.doctor.all.sample,
+      doctor: Doctor.all.sample,
       status: 'closed'
     )
   end
@@ -50,8 +59,23 @@ p "Creating patients and their cases ..."
     patient: patient,
     description: Faker::Lorem.paragraphs.join(''),
     solution: Faker::Lorem.paragraphs.join(''),
-    doctor: User.doctor.all.sample,
+    doctor: Doctor.all.sample,
     status: 'active',
     covid_suspected: [false, false, false, false, false, false, false, true].sample
   )
 end
+
+p "Creating patient for testing ..."
+
+Patient.create(
+  email: test_patient_email,
+  password: test_patient_password,
+  first_name: "John",
+  last_name: "Doe",
+  pesel: "44051401458",
+  phone: "+48555123444",
+  dob: Date.new(1944, 5, 14),
+  weight: 85,
+  height: 180,
+  sex: 'm'
+)
