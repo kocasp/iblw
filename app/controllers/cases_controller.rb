@@ -29,7 +29,7 @@ class CasesController < ApplicationController
   def update
     respond_to do |format|
       if @case.update(case_params)
-        format.html { redirect_to @case, notice: 'Case was successfully updated.' }
+        format.html { redirect_to edit_case_path(@case), notice: 'Zgłoszenie zostało zaktualizowane.' }
       else
         format.html { render :edit }
       end
