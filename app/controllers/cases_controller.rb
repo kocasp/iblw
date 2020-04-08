@@ -29,6 +29,11 @@ class CasesController < ApplicationController
   def update
     respond_to do |format|
       if @case.update(case_params)
+        # TODO refactor this
+        if params["commit"] == "Aktualizuj i zamknij zgłoszenie"
+          @case.update(doctor: current_user, status: 'closed')
+        end
+
         format.html { redirect_to edit_case_path(@case), notice: 'Zgłoszenie zostało zaktualizowane.' }
       else
         format.html { render :edit }
