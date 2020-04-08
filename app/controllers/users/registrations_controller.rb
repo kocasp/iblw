@@ -21,41 +21,41 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  def create
-    # formatted_dob = sign_up_params["dob"].gsub("-","")
-    # pwz_number = sign_up_params["pwz_number"]
-    #
-    # url = "http://hdt.hipokrates.org/?pwz=#{pwz_number}&data_ur=#{formatted_dob}&format=json"
-    # p url
-    #
-    # uri = URI.parse(url)
-    # response = Net::HTTP.get_response(uri)
-    # json_response = JSON.parse(response.body)
-    # p json_response
-    # pwz_verified = (json_response["wynik"] == "1")
-    # unless true
-    #   redirect_to new_registration_path(User, valid: false, user_type: sign_up_params["user_type"]) and return
-    # end
-    build_resource(sign_up_params)
-
-    resource.save
-    yield resource if block_given?
-    if resource.persisted?
-      if resource.active_for_authentication?
-        set_flash_message! :notice, :signed_up
-        sign_up(resource_name, resource)
-        respond_with resource, location: after_sign_up_path_for(resource)
-      else
-        set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
-        expire_data_after_sign_in!
-        respond_with resource, location: after_inactive_sign_up_path_for(resource)
-      end
-    else
-      clean_up_passwords resource
-      set_minimum_password_length
-      respond_with resource, asdas: 123
-    end
-  end
+  # def create
+  #   # formatted_dob = sign_up_params["dob"].gsub("-","")
+  #   # pwz_number = sign_up_params["pwz_number"]
+  #   #
+  #   # url = "http://hdt.hipokrates.org/?pwz=#{pwz_number}&data_ur=#{formatted_dob}&format=json"
+  #   # p url
+  #   #
+  #   # uri = URI.parse(url)
+  #   # response = Net::HTTP.get_response(uri)
+  #   # json_response = JSON.parse(response.body)
+  #   # p json_response
+  #   # pwz_verified = (json_response["wynik"] == "1")
+  #   # unless true
+  #   #   redirect_to new_registration_path(User, valid: false, user_type: sign_up_params["user_type"]) and return
+  #   # end
+  #   build_resource(sign_up_params)
+  #
+  #   resource.save
+  #   yield resource if block_given?
+  #   if resource.persisted?
+  #     if resource.active_for_authentication?
+  #       set_flash_message! :notice, :signed_up
+  #       sign_up(resource_name, resource)
+  #       respond_with resource, location: after_sign_up_path_for(resource)
+  #     else
+  #       set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
+  #       expire_data_after_sign_in!
+  #       respond_with resource, location: after_inactive_sign_up_path_for(resource)
+  #     end
+  #   else
+  #     clean_up_passwords resource
+  #     set_minimum_password_length
+  #     respond_with resource
+  #   end
+  # end
 
   # GET /resource/edit
   # def edit
