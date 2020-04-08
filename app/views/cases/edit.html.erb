@@ -82,6 +82,7 @@
                              </p>
                           </div>
                        </div>
+                       <% if @case.doctor.present? %>
                         <div class="col-sm-12">
                            <div class="iq-card">
                               <div class="iq-header-title">
@@ -104,20 +105,40 @@
                               </div>
                            </div>
                         </div>
+                        <% end %>
                    </div>
                 </div>
              </div>
+
              <div class="row" style="margin-bottom: 15px">
-               <div class="col-md-3">
-                <button type="button" class="btn btn-block mb-3 btn-primary rounded-pill"><i class="ri-bill-fill"></i>Edytuj zalecenia</button>
+               <div class="col-md-12">
+                  <div class="iq-header-title">
+                     <h4 class="card-title text-primary">Zalecenia</h4>
+                  </div>
+                 <%= form_with model: @case, local: true do |form| %>
+                   <div class="field">
+                     <%= form.text_area :solution, class: "form-control mb-3", placeholder: "Zalecenia lekarskie" %>
+                   </div>
+                    <!--
+                   <div class="field">
+                     <%= form.label :specialist_type %>
+                     <%= form.text_field :specialist_type %>
+                   </div>
+                    -->
+                   <div class="actions">
+                     <%= form.submit 'Aktualizuj zgłoszenie', class: "btn btn-block mb-3 btn-primary rounded-pill" %>
+                   </div>
+                 <% end %>
                </div>
-               <div class="col-md-3">
+             </div>
+             <div class="row" style="margin-bottom: 15px">
+               <div class="col-md-4">
                  <button type="button" class="btn btn-block mb-3 btn-primary rounded-pill" data-toggle="modal" data-target="#callModal"><i class="ri-phone-fill"></i>Zadzwoń</button>
                </div>
-               <div class="col-md-3">
-                 <button type="button" class="btn btn-block mb-3 btn-dark rounded-pill"><i class="ri-shield-cross-fill"></i>Przypisz specjalistę</button>
+               <div class="col-md-4">
+                 <button type="button" class="btn btn-block mb-3 btn-dark rounded-pill disabled"><i class="ri-shield-cross-fill"></i>Przypisz specjalistę</button>
                </div>
-               <div class="col-md-3">
+               <div class="col-md-4">
                  <button type="button" class="btn btn-block mb-3 btn-success rounded-pill"><i class="ri-check-fill"></i>Zamknij zgłoszenie</button>
                </div>
              </div>
@@ -183,7 +204,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Łączenie ... </h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Usługa czasowo niedostępna </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -192,9 +213,10 @@
         <center>
           <h4><%= @case.patient.full_name %></h4>
           <h3><%= @case.patient.phone %></h3>
+          <p>Usługa połączenia VOIP jest czasowo niedostępna. Możesz skontaktować się z pacjentem jedynie dzwoniąc ze swojego telefonu.</p>
           <%= image_tag "web_call.png" %>
           <hr>
-          <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal">Zakończ połączenie</button>
+          <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal">Wyjdź</button>
         </center>
       </div>
     </div>
