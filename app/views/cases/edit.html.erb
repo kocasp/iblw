@@ -14,7 +14,7 @@
                 <div class="iq-card-body">
                    <div class="user-details-block">
                       <div class="user-profile text-center">
-                         <%= image_tag @case.patient.sex == 'm' ? "user/09.jpg" : "user/15.jpg", class: 'rounded-circle img-fluid'%>
+                         <%= user_avatar @case.patient, class: 'rounded-circle img-fluid'%>
                       </div>
                       <div class="text-center mt-3">
                          <h4><b><%= @case.patient.full_name %></b></h4>
@@ -100,7 +100,7 @@
                                 <div class="chat chat-left">
                                   <div class="chat-user">
                                     <a class="avatar m-0">
-                                      <%= image_tag "user/12.jpg", class: 'avatar-35 rounded'%>
+                                      <%= user_avatar @case.doctor, class: 'avatar-35 rounded'%>
                                     </a>
                                       <span class="chat-time mt-1"><%= @case.doctor.first_name %><br/><%= @case.doctor.last_name %></span>
                                   </div>
@@ -175,7 +175,7 @@
                                <div class="chat chat-left">
                                  <div class="chat-user">
                                    <a class="avatar m-0">
-                                     <%= image_tag "user/06.jpg", class: 'avatar-35 rounded'%>
+                                     <%= user_avatar c.author, class: 'avatar-35 rounded'%>
                                    </a>
                                    <span class="chat-time mt-1">
                                      <%= c.author.full_name %>

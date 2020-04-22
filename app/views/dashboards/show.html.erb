@@ -30,7 +30,7 @@
                              <% @user_specializations_cases.each do |c| %>
                               <tr class="case-row">
                                  <td>
-                                   <%= image_tag c.patient.sex == 'm' ? "user/09.jpg" : "user/1.jpg", class: "rounded-circle img-fluid avatar-40" %>
+                                   <%= user_avatar c.patient, class: "rounded-circle img-fluid avatar-40" %>
                                    <span style="white-space:nowrap"><%= c.patient.full_name %></span>
                                    <% if c.covid_suspected %>
                                      <span class="badge badge-danger">podejrzenie COVID-19</span>

@@ -14,7 +14,7 @@
                           <div class="doc-profile-bg bg-primary" style="height:150px;">
                           </div>
                           <div class="doctor-profile text-center">
-                             <%= image_tag "user/09.jpg", class: "rounded-circle img-fluid" %>
+                             <%= user_avatar(current_user) %>
                           </div>
                           <div class="text-center mt-3 pl-3 pr-3">
                              <h4><b><%= current_user.full_name %></b></h4>
