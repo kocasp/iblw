@@ -114,43 +114,45 @@
                    </div>
                 </div>
              </div>
-            <div class="iq-card iq-card-block iq-card-stretch">
-               <div class="iq-card-body pb-0">
+            <% if @case.active? %>
+              <div class="iq-card iq-card-block iq-card-stretch">
+                 <div class="iq-card-body pb-0">
 
-                <div class="row" style="margin-bottom: 15px">
-                   <div class="col-md-12">
-                      <div class="iq-header-title">
-                         <h4 class="card-title text-primary">Zalecenia</h4>
-                      </div>
-                     <%= form_with model: @case, local: true do |form| %>
-                       <div class="field">
-                         <%= form.text_area :solution, class: "form-control mb-3", placeholder: "Zalecenia lekarskie" %>
-                       </div>
-                        <!--
-                       <div class="field">
-                         <%= form.label :specialist_type %>
-                         <%= form.text_field :specialist_type %>
-                       </div>
-                        -->
-                       <div class="actions">
-                         <%= form.submit 'Aktualizuj zgłoszenie', class: "btn btn-block mb-3 btn-primary rounded-pill" %>
-                       </div>
-                       <div class="row">
-                         <div class="col-md-4">
-                           <button type="button" class="btn btn-block mb-3 btn-primary rounded-pill" data-toggle="modal" data-target="#callModal"><i class="ri-phone-fill"></i>Zadzwoń</button>
+                  <div class="row" style="margin-bottom: 15px">
+                     <div class="col-md-12">
+                        <div class="iq-header-title">
+                           <h4 class="card-title text-primary">Zalecenia</h4>
+                        </div>
+                       <%= form_with model: @case, local: true do |form| %>
+                         <div class="field">
+                           <%= form.text_area :solution, class: "form-control mb-3", placeholder: "Zalecenia lekarskie" %>
                          </div>
-                         <div class="col-md-4">
-                           <button type="button" class="btn btn-block mb-3 btn-dark rounded-pill disabled"><i class="ri-shield-cross-fill"></i>Przypisz specjalistę</button>
+                          <!--
+                         <div class="field">
+                           <%= form.label :specialist_type %>
+                           <%= form.text_field :specialist_type %>
                          </div>
-                         <div class="col-md-4">
-                           <%= form.submit 'Aktualizuj i zamknij zgłoszenie', class: "btn btn-block mb-3 btn-success rounded-pill" %>
+                          -->
+                         <div class="actions">
+                           <%= form.submit 'Aktualizuj zgłoszenie', class: "btn btn-block mb-3 btn-primary rounded-pill" %>
                          </div>
-                       </div>
-                     <% end %>
-                   </div>
-                  </div>
-              </div>
-             </div>
+                         <div class="row">
+                           <div class="col-md-4">
+                             <button type="button" class="btn btn-block mb-3 btn-primary rounded-pill" data-toggle="modal" data-target="#callModal"><i class="ri-phone-fill"></i>Zadzwoń</button>
+                           </div>
+                           <div class="col-md-4">
+                             <button type="button" class="btn btn-block mb-3 btn-dark rounded-pill disabled"><i class="ri-shield-cross-fill"></i>Przypisz specjalistę</button>
+                           </div>
+                           <div class="col-md-4">
+                             <%= form.submit 'Aktualizuj i zamknij zgłoszenie', data: {confirm: "Czy na pewno chcesz zakończyć tą konsultację?"}, class: "btn btn-block mb-3 btn-success rounded-pill" %>
+                           </div>
+                         </div>
+                       <% end %>
+                     </div>
+                    </div>
+                </div>
+               </div>
+              <% end %>
             <div class="iq-card iq-card-block iq-card-stretch">
                <div class="iq-card-body pb-0">
                   <div class="row">

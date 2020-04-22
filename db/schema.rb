@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_22_152153) do
+ActiveRecord::Schema.define(version: 2020_04_22_174016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_04_22_152153) do
     t.integer "doctor_id"
     t.boolean "covid_suspected"
     t.integer "specialization_id"
+    t.datetime "closed_at"
   end
 
   create_table "comments", force: :cascade do |t|

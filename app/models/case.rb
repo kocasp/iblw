@@ -4,4 +4,12 @@ class Case < ApplicationRecord
 
   scope :active, -> { where(status: 'active') }
   scope :closed, -> { where(status: 'closed') }
+
+  def active?
+    status == "active"
+  end
+
+  def close!
+    update(closed_at: Time.now, status: 'closed')
+  end
 end
