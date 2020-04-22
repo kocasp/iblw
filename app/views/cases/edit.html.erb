@@ -67,6 +67,9 @@
                             <div class="iq-header-title">
                                <h4 class="card-title text-primary">
                                  Opis zgłoszenia
+                                 <% if @case.specialization_id.present? %>
+                                   <span class="badge badge-primary" data-toggle="modal" data-target="#specializationsModal" style="cursor: pointer"><%= Doctor::SPECIALIZATIONS[@case.specialization_id] %></span>
+                                 <% end %>
                                  <% if @case.status == 'closed' %>
                                    <span class="badge badge-danger">Zamknięte (zalecenia do wglądu dla pacjenta)</span>
                                  <% end %>
@@ -141,10 +144,10 @@
                              <button type="button" class="btn btn-block mb-3 btn-primary rounded-pill" data-toggle="modal" data-target="#callModal"><i class="ri-phone-fill"></i>Zadzwoń</button>
                            </div>
                            <div class="col-md-4">
-                             <button type="button" class="btn btn-block mb-3 btn-dark rounded-pill disabled"><i class="ri-shield-cross-fill"></i>Przypisz specjalistę</button>
+                             <button type="button" class="btn btn-block mb-3 btn-dark rounded-pill" data-toggle="modal" data-target="#specializationsModal"><i class="ri-shield-cross-fill"></i>Przypisz/zmień zalecanego specjalistę</button>
                            </div>
                            <div class="col-md-4">
-                             <%= form.submit 'Aktualizuj i zamknij zgłoszenie', data: {confirm: "Czy na pewno chcesz zakończyć tą konsultację?"}, class: "btn btn-block mb-3 btn-success rounded-pill" %>
+                             <%= form.submit 'Aktualizuj i zamknij zgłoszenie', data: {confirm: "Czy na pewno chcesz zakończyć tą konsultację? Zakańczając konsultację potwierdzasz, że porada została udzielona."}, class: "btn btn-block mb-3 btn-success rounded-pill" %>
                            </div>
                          </div>
                        <% end %>
@@ -215,6 +218,36 @@
        </footer>
        <!-- Footer END -->
  </div>
+</div>
+
+
+<!-- SPECIALIZATIONS MODAL -->
+<!-- Modal -->
+<div class="modal fade" id="specializationsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Przypisz specjalizację </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <center>
+          <% if @case.specialization_id.present? %>
+            <h3><%= Doctor::SPECIALIZATIONS[@case.specialization_id] %> (aktualnie)</h3>
+          <% end %>
+          <p>Zaleć konsultację specjalisty (Oznaczone w ten sposób zgłoszenia będą wyświetlały się specjalistom na ich ekranie głównym)</p>
+          <%= form_with model: @case, local: true do |form| %>
+            <%= form.collection_select :specialization_id, Doctor::SPECIALIZATIONS.sort_by{|k, v| v}, :first, :second, {include_blank: true}, {class: "form-control"} %>
+            <hr>
+            <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal">Wyjdź</button>
+            <%= form.submit "Przypisz", class: "btn btn-lg btn-success" %>
+          <% end %>
+        </center>
+      </div>
+    </div>
+  </div>
 </div>
 
 

@@ -15,11 +15,48 @@
                       <h4 class="card-title">Zgłoszenia przypisane do Twojej specjalizacji</h4>
                    </div>
                 </div>
-                <div class="iq-card-body">
-                  <div class="d-inline-block text-center w-100">
-                     <p>Brak zgłoszeń dotyczących Twojej specjalizacji</p>
+                <% if @user_specializations_cases.any? %>
+                  <div class="iq-card-body">
+                     <div class="table-responsive">
+                        <table class="table mb-0 table-borderless">
+                           <thead>
+                              <tr>
+                                 <th scope="col">Pacjent</th>
+                                 <th scope="col" style="width: 65%">Zgłoszenie</th>
+                                 <th scope="col">Data zgłoszenia</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                             <% @user_specializations_cases.each do |c| %>
+                              <tr class="case-row">
+                                 <td>
+                                   <%= image_tag c.patient.sex == 'm' ? "user/09.jpg" : "user/1.jpg", class: "rounded-circle img-fluid avatar-40" %>
+                                   <span style="white-space:nowrap"><%= c.patient.full_name %></span>
+                                   <% if c.covid_suspected %>
+                                     <span class="badge badge-danger">podejrzenie COVID-19</span>
+                                   <% end %>
+                                 </td>
+                                 <td>
+                                   <%= link_to edit_case_path(c) do %>
+                                    <p style="font-size: 12px; color: #a09e9e">
+                                      <%= c.description %>
+                                    </p>
+                                   <% end %>
+                                 </td>
+                                 <td><%= c.created_at.to_date %></td>
+                              </tr>
+                             <% end %>
+                           </tbody>
+                        </table>
+                     </div>
                   </div>
-                </div>
+                <% else %>
+                  <div class="iq-card-body">
+                    <div class="d-inline-block text-center w-100">
+                       <p>Brak zgłoszeń dotyczących Twojej specjalizacji</p>
+                    </div>
+                  </div>
+                <% end %>
               </div>
              </div>
              <div class="col-sm-12">

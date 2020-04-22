@@ -57,6 +57,6 @@ class CasesController < ApplicationController
     end
 
     def case_params
-      params.require(:case).permit(:description, :solution, :specialist_type)
+      params.require(:case).permit(:description, :solution, :specialization_id)
     end
 end
