@@ -79,10 +79,10 @@
                        <% @closed_cases.each do |c| %>
                           <li>
                              <div class="timeline-dots-fill"></div>
-                             <h6 class="float-left mb-2 text-dark"><i class="ri-user-fill"></i>
+                             <h6 class="mb-2 text-dark"><i class="ri-user-fill"></i>
                                <%= c.description %>
                              </h6>
-                             <small class="float-right mt-1">dr. <%= c.doctor.full_name %> <%= c.updated_at.to_date %></small>
+                             <small class="mt-1"><%= c.updated_at.to_date %> dr. <%= c.doctor.full_name %>:</small>
                              <div class="d-inline-block w-100">
                                 <p>
                                   <%= c.solution %>

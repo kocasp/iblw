@@ -67,7 +67,7 @@ end
 
 p "Creating patient for testing ..."
 
-Patient.create(
+test_patient = Patient.last.update(
   email: "patient@email.com",
   password: "password1",
   first_name: "John",
