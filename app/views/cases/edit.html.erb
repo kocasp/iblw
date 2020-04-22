@@ -151,7 +151,7 @@
                   </div>
               </div>
              </div>
-            <!-- <div class="iq-card iq-card-block iq-card-stretch">
+            <div class="iq-card iq-card-block iq-card-stretch">
                <div class="iq-card-body pb-0">
                   <div class="row">
                      <div class="col-sm-12">
@@ -159,30 +159,39 @@
                            <div class="iq-header-title">
                               <h4 class="card-title text-primary">Komentarze odnośnie pacjenta</h4>
                            </div>
-                           <div class="form-group">
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
-                           </div>
-                           <button type="submit" class="btn btn-primary">Dodaj komentarz</button>
-                           <div class="chat-content" style="height:unset; overflow-y:auto">
-                             <div class="chat chat-left">
-                               <div class="chat-user">
-                                 <a class="avatar m-0">
-                                   <%= image_tag "user/06.jpg", class: 'avatar-35 rounded'%>
-                                 </a>
-                                   <span class="chat-time mt-1">Imie<br/>Lekarza</span>
-                               </div>
-                               <div class="chat-detail">
-                                 <div class="chat-message">
-                                   <p>Pacjent odmówił dalszej diagnostyki nerek</p>
+                           <%= form_for [@case.patient, Comment.new] do |f| %>
+                             <div class="form-group">
+                              <%= f.text_area :text, class: "form-control", rows: 2 %>
+                             </div>
+                             <%= f.submit 'Dodaj komentarz', class: 'btn btn-primary' %>
+                           <% end %>
+                           <% @patient_comments.each do |c| %>
+                             <div class="chat-content" style="height:unset; overflow-y:auto">
+                               <div class="chat chat-left">
+                                 <div class="chat-user">
+                                   <a class="avatar m-0">
+                                     <%= image_tag "user/06.jpg", class: 'avatar-35 rounded'%>
+                                   </a>
+                                   <span class="chat-time mt-1">
+                                     <%= c.author.full_name %>
+                                     <br/>
+                                     <%= c.created_at.strftime("%d-%m-%Y") %>
+                                   </span>
+                                 </div>
+                                 <div class="chat-detail">
+                                   <div class="chat-message">
+                                     <p><%= c.text %></p>
+                                     <p><%= link_to 'Usuń', [@case.patient, c], method: :delete, data: { confirm: 'Czy chcesz usunąć swój komentarz?' } %></p>
+                                   </div>
                                  </div>
                                </div>
                              </div>
-                           </div>
+                           <% end %>
                         </div>
                      </div>
                   </div>
                </div>
-            </div> -->
+            </div>
           </div>
        </div>
     </div>

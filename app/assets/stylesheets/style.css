@@ -3794,3 +3794,6 @@
   font-size: 15px;
   color: red;
 }
+
+/* override ugly huge line height in textarea */
+.form-control { line-height: 30px }

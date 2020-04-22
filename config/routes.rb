@@ -11,5 +11,8 @@ Rails.application.routes.draw do
   resources :solutions
   resources :cases
   resources :dashboards
+  resources :patients do
+    resources :comments
+  end
   root to: 'dashboards#show'
 end

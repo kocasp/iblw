@@ -8,6 +8,10 @@ class CasesController < ApplicationController
   def show
   end
 
+  def edit
+    @patient_comments = @case.patient.comments.order(created_at: :desc).last(10)
+  end
+
   def new
     @active_case = current_user.cases.where(status: 'active').take
     @closed_cases = current_user.cases.where(status: 'closed')
