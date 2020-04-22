@@ -24,7 +24,8 @@ Doctor.create(
   last_name: "Smith",
   pwz_number: "6554327A",
   dob: Date.new(1990, 11, 11),
-  sex: 'm'
+  sex: 'm',
+  specializations: [28]
 )
 
 p "Creating random patients and their cases ..."
