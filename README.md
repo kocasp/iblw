@@ -1,5 +1,6 @@
-# IBLW Readme
+# IBLW Readme (currently WolontariatMedyczny.pl)
 Online Database of Volunteer Doctors
+![Imgur Image](https://i.imgur.com/yYqKOxT.jpg)  
 ![Imgur Image](https://www.gov.pl/photo/40fee575-0ecc-405d-8e62-9396f7064fe3)  
 Konrad Strojny  
 Wojciech Kanas
@@ -61,12 +62,17 @@ Patient and Doctor use Single Table Inheritance
 -
 
 ### Git workflow
-Currently there is only master branch that is deployed to production.
-Please create Pull Requests to the master branch directly
+`Development` branch is for experimenting purpose.
+Please create pull requests to `master` branch.
 
 ### Deployment
-Development branch is available under develop.wolontariatmedyczny.pl  
-Production deployment is triggered automatically after merge to master  
+Development branch is available under dev.wolontariatmedyczny.pl  
+its deployed automatically from `development` branch
+
+Staging deployment is triggered automatically after merge to master and CI tests pass  
+it is available at stg.wolontariatmedyczny.pl  
+
+Production deploy is possible only by promoting staging to production in Heroku pipelines.
 
 __currently on both environments manual trigger of `rails db:migrate` is required__  
 it is possible from heroku dashboard. Or with `heroku run rails db:migrate`
