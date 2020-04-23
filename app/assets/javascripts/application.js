@@ -15,11 +15,11 @@
 //= require theme/jquery.min
 //= require theme/popper.min
 //= require theme/bootstrap.min
+//= require theme/core
 //= require theme/animated
 //= require theme/apexcharts
 //= require theme/charts
 //= require theme/chart-custom
-//= require theme/core
 //= require theme/countdown.min
 //= require theme/jquery.appear
 //= require theme/jquery.counterup.min
