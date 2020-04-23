@@ -10,28 +10,6 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
 //= require activestorage
 //= require theme/jquery.min
-//= require theme/popper.min
-//= require theme/bootstrap.min
-//= require theme/animated
-//= require theme/apexcharts
-//= require theme/charts
-//= require theme/chart-custom
-//= require theme/core
-//= require theme/countdown.min
-//= require theme/jquery.appear
-//= require theme/jquery.counterup.min
-//= require theme/jquery.magnific-popup.min
-//= require theme/kelly
-//= require theme/lottie
-//= require theme/owl.carousel.min
-//= require theme/select2.min
-//= require theme/slick.min
-//= require theme/smooth-scrollbar
-//= require theme/waypoints.min
-//= require theme/wow.min
 //= require theme/custom
-//= require amcharts
-//= require turbolinks
