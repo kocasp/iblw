@@ -20,9 +20,6 @@
 //= require theme/charts
 //= require theme/chart-custom
 //= require theme/core
-//= require theme/countdown.min
-//= require theme/jquery.appear
-//= require theme/jquery.counterup.min
 //= require theme/jquery.magnific-popup.min
 //= require theme/select2.min
 //= require theme/custom
