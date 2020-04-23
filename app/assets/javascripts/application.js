@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require theme/jquery.min
+//= require theme/popper.min
 //= require theme/bootstrap.min
 //= require theme/jquery.magnific-popup.min
 //= require theme/select2.min
