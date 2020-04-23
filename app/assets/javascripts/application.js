@@ -10,6 +10,10 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require rails-ujs
 //= require activestorage
 //= require theme/jquery.min
+//= require theme/bootstrap.min
+//= require theme/jquery.magnific-popup.min
+//= require theme/select2.min
 //= require theme/custom
