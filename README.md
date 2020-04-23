@@ -38,6 +38,7 @@ Patient:
 ### Local setup
 `rake db:create`  
 `rake db:migrate`  
+`rake db:seed`  
 
 ### First test run
 -
