@@ -2384,7 +2384,7 @@ body.appointment-form-visible{
 
 .symptoms-section{
 	position:relative;
-	padding: 90px 0px 0px;
+	padding: 90px 0px 90px;
 	background-color: rgba(237, 237, 237, 0.15);
 	background-image: url(../images/resource/shape-1.png);
 }
@@ -3117,7 +3117,7 @@ body.appointment-form-visible{
 
 .features-section-five{
 	position:relative;
-	padding-bottom: 120px;
+	padding-bottom: 100px;
 }
 
 .features-section-five .title-box{
@@ -4640,4 +4640,10 @@ body.appointment-form-visible{
     position: relative;
     border: 1px solid #eee;
     border-radius: 6px;
+}
+
+/* custom styles */
+
+.text p b{
+	font-weight: 600;
 }
